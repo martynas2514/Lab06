@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/alejo-perez-upc-77/Lab05.svg?branch=master)](https://travis-ci.org/alejo-perez-upc-77/Lab05)
+[![Build Status](https://travis-ci.org/martynas2514/Lab06.svg?branch=main)](https://travis-ci.org/martynas2514/Lab06)
 
-# Lab05
-A package connecting to a web API
+# Lab06
+knapsack problem
