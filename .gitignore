@@ -1,4 +1,9 @@
+# copy from lab04
+
+*.Rproj
 .Rproj.user
 .Rhistory
+*.RData
 .RData
 .Ruserdata
+inst/doc
