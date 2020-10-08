@@ -19,7 +19,6 @@ greedy_knapsack <- function(x, W){
   max_value <- 0
   fractions <- array(dim=length(sorted$ratio))
   for (row in 1:nrow(sorted)) {
-
     if (sorted[row,'w'] <= W) {
       fractions[row] <- 1
       max_value <- max_value + sorted[row,'v']
@@ -27,14 +26,17 @@ greedy_knapsack <- function(x, W){
     }
 
 
-
     else{
-      fractions[row] = W/sorted[row,'w']
+      fractions[row] <- W/sorted[row,'w']
       max_value <- max_value + sorted[row,"v"]*W/sorted[row,'w']
       break
       }
-    }
-    return(list(max_value, fractions) )
+  }
+    indexes <- which(fractions==TRUE)
+    whole_value <- round(sum(sorted[indexes,"v"]))
+    elements <- unlist(lapply(rownames(sorted[indexes,]), as.integer))
+
+    return(list(value = whole_value, elements = elements))
 
 }
 
