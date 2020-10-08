@@ -1,3 +1,6 @@
+library(Rcpp)
+
+
 knapsack_dynamic <- function(x, W){
   value <- matrix(-1, nrow = length(x$w) + 1, ncol = W +1)
   value[1, ] <- 0
@@ -42,8 +45,8 @@ knapsack_dynamic <- function(x, W){
    }
    i = i-1
  }
- print(items)
- return(result)
+
+ return(list(value = result , elements = items))
 }
 
 
