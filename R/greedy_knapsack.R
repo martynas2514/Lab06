@@ -10,7 +10,13 @@ greedy_knapsack <- function(x, W){
     for 0 <= i < n where n is the number of items.
 
     capacity is the maximum weight.
+
     "
+  stopifnot("x is not a data frame object"=is.data.frame(x),
+            "W is not numeric"=is.numeric(W),
+            "W is not positive"= W>0,
+            "x does not contain columns with names (w, v)"=colnames(x) %in% c("w","v"))
+
   x$ratio <- x$v / x$w
 
   sorted <- x[order(x$ratio, decreasing = TRUE),]

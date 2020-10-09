@@ -1,6 +1,7 @@
 brute_force_knapsack <- function(x,W){
   stopifnot("x is not a data frame object"=is.data.frame(x),
             "W is not numeric"=is.numeric(W),
+            "W is not positive"= W>0,
             "x does not contain columns with names (w, v)"=colnames(x) %in% c("w","v"))
 
   # lets use all combinations
@@ -15,5 +16,9 @@ brute_force_knapsack <- function(x,W){
 
   filter <- AllCombinations[AllCombinations$WeightComb <= W,]
   result <- filter[filter$round.ValueComb == max(filter$round.ValueComb),]
-  return(result)
+  result <- result[,c('round.ValueComb.','elementComb')]
+  colnames(result) <- c('value', 'elements' )
+  result_list <- as.list(result)
+  result_list$elements <- unlist(lapply(result_list$elements, FUN=as.integer))
+  return(result_list)
 }
