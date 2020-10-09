@@ -9,12 +9,11 @@ Maintainer: Alejo Perez <alejperz7@gmail.com>
 Description: Implementation of knapsack problem.
 License: GPL-3
 Encoding: UTF-8
-Suggests: 
-    testthat
 Imports:
  Rcpp,
  parallel
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    testthat
 VignetteBuilder: knitr
