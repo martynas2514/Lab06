@@ -1,0 +1,54 @@
+---
+title: "lab_report_knapsack"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{lab_report_knapsack}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(Lab06)
+```
+# brute force knapsack
+
+1. raw
+```
+Unit: milliseconds
+                                                                expr      min       lq     mean   median       uq      max neval
+ Lab06::brute_force_knapsack(x = knapsack_objects[1:16, ], W = 3500) 328.6047 380.9232 412.8512 409.5157 436.1366 566.0723   100
+```
+ 
+2. after profiling:
+```
+Unit: milliseconds
+                                                                expr     min     lq     mean   median       uq      max neval
+ Lab06::brute_force_knapsack(x = knapsack_objects[1:16, ], W = 3500) 227.514 261.15 288.3555 287.9914 310.0506 416.5125   100
+```
+
+3. after parallelize
+```
+Unit: milliseconds
+                                                                           expr      min       lq     mean   median       uq      max neval
+ Lab06::brute_force_knapsack(x = knapsack_objects[1:16, ], W = 3500,      TRUE) 622.0385 822.6735 874.6833 873.8708 920.6959 1232.251   100
+```
+parallelizing takes effect only when size of the elements increses, creating clusters takes time
+
+# knapsack_dynamic
+
+profiling kanpsack dynamic algorithm
+```
+Lab06::knapsack_dynamic(x = knapsack_objects[1:300,], W = 3500)
+```
+mean before profiling - 61.44432, after - 27.24009 milliseconds
+
+time to run for 500 objects - 2.427855 s. 
+
+measured with: microbenchmark
