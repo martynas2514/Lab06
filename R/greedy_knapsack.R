@@ -40,7 +40,7 @@ greedy_knapsack <- function(x, W){
 
 }
 
-a <- greedy_knapsack(x = knapsack_objects[1:4,], 2000)
+#a <- greedy_knapsack(x = knapsack_objects[1:4,], 2000)
 
 
 

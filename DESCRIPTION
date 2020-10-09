@@ -10,5 +10,9 @@ Description: Implementation of knapsack problem.
 License: GPL-3
 Encoding: UTF-8
 Imports:
- Rcpp
- 
+ Rcpp,
+ parallel
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
