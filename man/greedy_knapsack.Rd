@@ -2,7 +2,7 @@
 % Please edit documentation in R/greedy_knapsack.R
 \name{greedy_knapsack}
 \alias{greedy_knapsack}
-\title{Return maximum value of items and their fractional amounts.}
+\title{Greedy solution for the knapsack problem}
 \usage{
 greedy_knapsack(x, W)
 }
@@ -12,8 +12,8 @@ greedy_knapsack(x, W)
 \item{W}{max weight}
 }
 \value{
-most valued combination of elements which fits backpack
+most valued combination of elements which fits backpack and the maximum value achieved
 }
 \description{
-Return maximum value of items and their fractional amounts.
+Greedy solution for the knapsack problem
 }

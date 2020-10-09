@@ -2,7 +2,7 @@
 % Please edit documentation in R/knapsack_dynamic.R
 \name{knapsack_dynamic}
 \alias{knapsack_dynamic}
-\title{knapsack_dynamic}
+\title{Dynamic solution for the knapsack problem}
 \usage{
 knapsack_dynamic(x, W)
 }
@@ -12,8 +12,8 @@ knapsack_dynamic(x, W)
 \item{W}{max weight}
 }
 \value{
-most valued combination of elements which fits backpack
+most valued combination of elements which fits backpack and the maximum value achieved
 }
 \description{
-knapsack_dynamic
+Dynamic solution for the knapsack problem
 }

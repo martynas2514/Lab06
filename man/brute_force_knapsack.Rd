@@ -2,7 +2,7 @@
 % Please edit documentation in R/brute_force_knapsack.R
 \name{brute_force_knapsack}
 \alias{brute_force_knapsack}
-\title{brute force knapsack}
+\title{Brute force solution for the knapsack problem}
 \usage{
 brute_force_knapsack(x, W, parallel = FALSE)
 }
@@ -14,8 +14,8 @@ brute_force_knapsack(x, W, parallel = FALSE)
 \item{parallel}{TRue if with parallel, False (default if not)}
 }
 \value{
-most valued combination of elements which fits backpack
+most valued combination of elements which fits backpack and the maximum value achieved
 }
 \description{
-brute force knapsack
+Brute force solution for the knapsack problem
 }
