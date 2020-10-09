@@ -5,7 +5,7 @@
 #' @param parallel TRue if with parallel, False (default if not)
 #'
 #' @return most valued combination of elements which fits backpack and the maximum value achieved
-#' @import parallel
+#' @import parallel utils
 #' @export
 
 
