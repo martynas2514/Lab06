@@ -12,11 +12,8 @@ Encoding: UTF-8
 Imports:
  Rcpp,
  parallel
-<<<<<<< HEAD
-=======
 Suggests: 
     knitr,
     rmarkdown,
     testthat
->>>>>>> 3a19ed88512a72690668b3582402ff53024534ec
 VignetteBuilder: knitr
