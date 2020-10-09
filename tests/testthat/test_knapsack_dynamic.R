@@ -13,7 +13,6 @@ test_that("Correct object is returned", {
   expect_named(bfk, c("value", "elements"))
 })
 
-
 test_that("functions rejects errounous input.", {
   expect_error(knapsack_dynamic("hej", 3500))
   expect_error(knapsack_dynamic(x = knapsack_objects[1:8,], W = -3500))

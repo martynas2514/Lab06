@@ -1,11 +1,11 @@
-#' knapsack_dynamic
+#' Dynamic solution for the knapsack problem
 #'
 #' @param x data structure of weights and values
 #' @param W max weight
 #'
-#' @return most valued combination of elements which fits backpack
+#' @return most valued combination of elements which fits backpack and the maximum value achieved
 #' @export
-
+#'
 
 
 knapsack_dynamic <- function(x, W){

@@ -1,10 +1,10 @@
-#' brute force knapsack
+#' Brute force solution for the knapsack problem
 #'
 #' @param x data structure of weights and values
 #' @param W max weight
 #' @param parallel TRue if with parallel, False (default if not)
 #'
-#' @return most valued combination of elements which fits backpack
+#' @return most valued combination of elements which fits backpack and the maximum value achieved
 #' @import parallel
 #' @export
 
