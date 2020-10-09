@@ -1,3 +1,11 @@
+#' Return maximum value of items and their fractional amounts.
+#'
+#' @param x data structure of weights and values
+#' @param W max weight
+#'
+#' @return most valued combination of elements which fits backpack
+#' @export
+
 greedy_knapsack <- function(x, W){
   "Return maximum value of items and their fractional amounts.
 

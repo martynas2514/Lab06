@@ -1,9 +1,9 @@
 #' knapsack_dynamic
 #'
-#' @param x dataframe
-#' @param W integer
+#' @param x data structure of weights and values
+#' @param W max weight
 #'
-#' @return list
+#' @return most valued combination of elements which fits backpack
 #' @export
 
 
