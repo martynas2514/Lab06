@@ -52,3 +52,12 @@ mean before profiling - 61.44432, after - 27.24009 milliseconds
 time to run for 500 objects - 2.427855 s. 
 
 measured with: microbenchmark
+
+
+# greedy_knapsack
+
+```
+Unit: milliseconds
+                                                              expr      min       lq     mean   median       uq      max neval
+ Lab06::greedy_knapsack(x = knapsack_objects[1:1e+06, ], W = 3500) 824.3755 989.3942 1045.773 1044.997 1088.741 1261.094   100
+```
