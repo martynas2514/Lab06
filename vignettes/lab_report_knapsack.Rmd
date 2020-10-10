@@ -1,5 +1,5 @@
 ---
-title: "lab_report_knapsack"
+title: "Lab Report of Knapsack Problem"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{lab_report_knapsack}
@@ -17,9 +17,9 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(Lab06)
 ```
-# brute_force_knapsack
+## brute_force_knapsack
 
-## 1. Raw
+### 1. Raw
 
 
 ```{r include = TRUE}
@@ -46,7 +46,7 @@ knitr::kable(
 
 
  
-## 2. After profiling
+### 2. After profiling
 
 
 ```{r include = TRUE}
@@ -67,7 +67,7 @@ knitr::kable(
 
 
 
-## 3. Parallelization
+### 3. Parallelization
 
 
 
@@ -89,7 +89,7 @@ knitr::kable(
 ```
 Parallelization takes effect only when size of the elements increases since creating clusters takes time
 ```
-# knapsack_dynamic
+## knapsack_dynamic
 
 ```
 profiling kanpsack dynamic algorithm
@@ -111,7 +111,7 @@ knitr::kable(
 Measured with: microbenchmark
 ```
 
-# greedy_knapsack
+## greedy_knapsack
 
 
 ```{r include = TRUE}
