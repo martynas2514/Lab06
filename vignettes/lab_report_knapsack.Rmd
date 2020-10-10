@@ -17,47 +17,114 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(Lab06)
 ```
-# brute force knapsack
+# brute_force_knapsack
 
-1. raw
+## 1. Raw
+
+
+```{r include = TRUE}
+set.seed(42)
+n <- 2000
+knapsack_objects <- data.frame(
+  w=sample(1:4000, size = n, replace = TRUE),
+  v=runif(n = n, 0, 10000)
+)
+brute_force_knapsack(x = knapsack_objects[1:16, ], W = 3500)
 ```
-Unit: milliseconds
-                                                                expr      min       lq     mean   median       uq      max neval
- Lab06::brute_force_knapsack(x = knapsack_objects[1:16, ], W = 3500) 328.6047 380.9232 412.8512 409.5157 436.1366 566.0723   100
 ```
+Units: milliseconds
+```
+```{r include = TRUE, echo=FALSE}
+
+table = cbind(c("expr", "min", "lq", "mean", "median", "uq", "max neval"), c("328.6047", "380.9232", "412.8512", "409.5157", "436.1366", "566.0723", "100"))
+
+knitr::kable(
+  table, caption = 'Performance Metrics',col.names = c("metrics", "value")
+)
+```
+
+
+
  
-2. after profiling:
+## 2. After profiling
+
+
+```{r include = TRUE}
+Lab06::brute_force_knapsack(x = knapsack_objects[1:16, ], W = 3500)
 ```
-Unit: milliseconds
-                                                                expr     min     lq     mean   median       uq      max neval
- Lab06::brute_force_knapsack(x = knapsack_objects[1:16, ], W = 3500) 227.514 261.15 288.3555 287.9914 310.0506 416.5125   100
+```
+Units: milliseconds
+```
+```{r include = TRUE, echo=FALSE}
+
+table = cbind(c("expr", "min", "lq", "mean", "median", "uq", "max neval"), c("227.514", "261.15", "288.3555", "287.9914", "310.0506", "416.5125",   "100"))
+
+knitr::kable(
+  table, caption = 'Performance Metrics',col.names = c("metrics", "value")
+)
 ```
 
-3. after parallelize
-```
-Unit: milliseconds
-                                                                           expr      min       lq     mean   median       uq      max neval
- Lab06::brute_force_knapsack(x = knapsack_objects[1:16, ], W = 3500,      TRUE) 622.0385 822.6735 874.6833 873.8708 920.6959 1232.251   100
-```
-parallelizing takes effect only when size of the elements increses, creating clusters takes time
 
+
+
+## 3. Parallelization
+
+
+
+```{r include = TRUE}
+Lab06::brute_force_knapsack(x = knapsack_objects[1:16, ], W = 3500)
+```
+```
+Units: milliseconds
+```
+```{r include = TRUE, echo=FALSE}
+
+table = cbind(c("expr", "min", "lq", "mean", "median", "uq", "max neval"), c("622.0385", "822.6735", "874.6833", "873.8708", "920.6959", "1232.251",   "100"))
+
+knitr::kable(
+  table, caption = 'Performance Metrics',col.names = c("metrics", "value")
+)
+```
+                                                                           
+```
+Parallelization takes effect only when size of the elements increases since creating clusters takes time
+```
 # knapsack_dynamic
 
+```
 profiling kanpsack dynamic algorithm
 ```
+```{r include = TRUE}
 Lab06::knapsack_dynamic(x = knapsack_objects[1:300,], W = 3500)
 ```
-mean before profiling - 61.44432, after - 27.24009 milliseconds
 
-time to run for 500 objects - 2.427855 s. 
+```{r include = TRUE, echo=FALSE}
 
-measured with: microbenchmark
+table = cbind(c("mean before profiling", "after", "time to run for 500 objects" ), c("61.44432", "27.24009", "2.427855 s"))
 
+knitr::kable(
+  table, caption = 'Profiling Metrics',col.names = c("metrics", "value")
+)
+```
+
+```
+Measured with: microbenchmark
+```
 
 # greedy_knapsack
 
+
+```{r include = TRUE}
+ Lab06::greedy_knapsack(x = knapsack_objects[1:1e+06, ], W = 3500) 
 ```
-Unit: milliseconds
-                                                              expr      min       lq     mean   median       uq      max neval
- Lab06::greedy_knapsack(x = knapsack_objects[1:1e+06, ], W = 3500) 824.3755 989.3942 1045.773 1044.997 1088.741 1261.094   100
+```
+Units: milliseconds
+```
+```{r include = TRUE, echo=FALSE}
+
+table = cbind(c("expr", "min", "lq", "mean", "median", "uq", "max neval"), c("824.3755", "989.3942", "1045.773", "1044.997", "1088.741", "1261.094",   "100"))
+
+knitr::kable(
+  table, caption = 'Performance Metrics',col.names = c("metrics", "value")
+)
 ```

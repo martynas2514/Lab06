@@ -55,7 +55,7 @@ knapsack_dynamic <- function(x, W){
    }
    i = i-1
  }
- return(list(value = result , elements = items))
+ return(list(value = round(result) , elements = items))
 }
 
 
