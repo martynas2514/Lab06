@@ -41,7 +41,7 @@ Units: milliseconds.
 ```
 ```{r include = TRUE, echo=FALSE}
 
-table = cbind(c("expr", "min", "lq", "mean", "median", "uq", "max neval"), c("328.6047", "380.9232", "412.8512", "409.5157", "436.1366", "566.0723", "100"))
+table = cbind(c("min", "lq", "mean", "median", "uq", "max", " neval"), c("328.6047", "380.9232", "412.8512", "409.5157", "436.1366", "566.0723", "100"))
 
 knitr::kable(
   table, caption = 'Performance Metrics',col.names = c("metrics", "value")
@@ -65,7 +65,7 @@ Units: milliseconds.
 ```
 ```{r include = TRUE, echo=FALSE}
 
-table = cbind(c("expr", "min", "lq", "mean", "median", "uq", "max neval"), c("227.514", "261.15", "288.3555", "287.9914", "310.0506", "416.5125",   "100"))
+table = cbind(c("min", "lq", "mean", "median", "uq", "max", "neval"), c("227.514", "261.15", "288.3555", "287.9914", "310.0506", "416.5125",   "100"))
 
 knitr::kable(
   table, caption = 'Performance Metrics',col.names = c("metrics", "value")
@@ -88,7 +88,7 @@ Units: milliseconds.
 ```
 ```{r include = TRUE, echo=FALSE}
 
-table = cbind(c("expr", "min", "lq", "mean", "median", "uq", "max neval"), c("622.0385", "822.6735", "874.6833", "873.8708", "920.6959", "1232.251",   "100"))
+table = cbind(c("min", "lq", "mean", "median", "uq", "max", "neval"), c("622.0385", "822.6735", "874.6833", "873.8708", "920.6959", "1232.251",   "100"))
 
 knitr::kable(
   table, caption = 'Performance Metrics',col.names = c("metrics", "value")
@@ -138,7 +138,7 @@ The mean time of execution with 1000000 objects is 1044.997 ms.
 ```
 ```{r include = TRUE, echo=FALSE}
 
-table = cbind(c("expr", "min", "lq", "mean", "median", "uq", "max neval"), c("824.3755", "989.3942", "1045.773", "1044.997", "1088.741", "1261.094",   "100"))
+table = cbind(c( "min", "lq", "mean", "median", "uq", "max", "neval"), c("824.3755", "989.3942", "1045.773", "1044.997", "1088.741", "1261.094",   "100"))
 
 knitr::kable(
   table, caption = 'Performance Metrics',col.names = c("metrics", "value")
