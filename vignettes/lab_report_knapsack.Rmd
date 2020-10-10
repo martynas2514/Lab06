@@ -110,7 +110,7 @@ Lab06::knapsack_dynamic(x = knapsack_objects[1:500,], W = 3500)
 
 ```{r include = TRUE, echo=FALSE}
 
-table = cbind(c("mean before profiling", "after profiling (300 objects)", "after profiling (500 objects)" ), c("61.44432 ms", "27.24009 ms", "2.427855 s"))
+table = cbind(c("mean before profiling (300 objects)", "after profiling (300 objects)", "after profiling (500 objects)" ), c("61.44432 ms", "27.24009 ms", "2.427855 s"))
 
 knitr::kable(
   table, caption = 'Profiling Metrics',col.names = c("metrics", "value")
@@ -119,7 +119,7 @@ knitr::kable(
 
 ```
 
-The mean time of execution with is 27.24009 ms, which represents an improvement of approximately 56 porcentual points with respect to the non-profiled one.
+The mean time of execution with is 27.24009 ms, which represents an improvement of approximately 56 porcentual points with respect to the non-profiled one. With the 500 objects execution, the time rises to 2.43 s.
 
 Measured with: microbenchmark.
 ```
@@ -134,7 +134,7 @@ The last approach will be a heuristic approximation. The algorithm will run in O
 Units: milliseconds
 The following table shows some performance metrics and time to carry out the execution over 1000000 objects using greedy implementation.
 
-The mean time of execution with is 1044.997 ms.
+The mean time of execution with 1000000 objects is 1044.997 ms.
 ```
 ```{r include = TRUE, echo=FALSE}
 
