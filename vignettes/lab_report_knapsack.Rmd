@@ -17,10 +17,14 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(Lab06)
 ```
+This package boasts 3 solutions aimed at resolving the so-called Knapsack problem. It consists in a optimization problem where we have a knapsack that can take a limited weight W and it is necessary to fill it with a number of items i = 1, ..., n, each with a
+weight W<sub>i</sub>  and a value V<sub>i</sub>. The goal is to fill the knapsack with the largest value of the elements added.
+
 ## brute_force_knapsack
 
 ### 1. Raw
 
+This solution implemented involves the computation of all possible permutations of objects. Therefore, the best solution is picked out (highest value complying with the maximum weight allowed). This approach is of complexity O(2<sup>n</sup>) since all possible combinations 2<sup>n</sup> need to be evaluated. 
 
 ```{r include = TRUE}
 set.seed(42)
@@ -32,7 +36,8 @@ knapsack_objects <- data.frame(
 brute_force_knapsack(x = knapsack_objects[1:16, ], W = 3500)
 ```
 ```
-Units: milliseconds
+The following table shows some performance metrics and time to carry out the execution over 16 objects.
+Units: milliseconds.
 ```
 ```{r include = TRUE, echo=FALSE}
 
@@ -43,7 +48,9 @@ knitr::kable(
 )
 ```
 
-
+```
+The mean time of execution is  409.5157 ms 
+```
 
  
 ### 2. After profiling
@@ -53,7 +60,8 @@ knitr::kable(
 Lab06::brute_force_knapsack(x = knapsack_objects[1:16, ], W = 3500)
 ```
 ```
-Units: milliseconds
+The following table shows some performance metrics and time to carry out the execution over 16 objects after profiling.
+Units: milliseconds.
 ```
 ```{r include = TRUE, echo=FALSE}
 
@@ -63,19 +71,20 @@ knitr::kable(
   table, caption = 'Performance Metrics',col.names = c("metrics", "value")
 )
 ```
-
-
-
+```
+The mean time of execution is 287.9914 ms, which represents an improvement of approximately 30 porcentual points with respect to the raw implementation
+```
 
 ### 3. Parallelization
 
-
+Parallelization has been implemented in order to improve the performance of the algorithm.
 
 ```{r include = TRUE}
-Lab06::brute_force_knapsack(x = knapsack_objects[1:16, ], W = 3500)
+Lab06::brute_force_knapsack(x = knapsack_objects[1:16, ], W = 3500, parallel = TRUE)
 ```
 ```
-Units: milliseconds
+The following table shows some performance metrics and time to carry out the execution over 16 objects using parallelization.
+Units: milliseconds.
 ```
 ```{r include = TRUE, echo=FALSE}
 
@@ -87,20 +96,21 @@ knitr::kable(
 ```
                                                                            
 ```
-Parallelization takes effect only when size of the elements increases since creating clusters takes time
+Parallelization takes effect only when size of the elements increases since creating clusters takes time. The mean time of execution is 873.8708 ms, which represent a worsening of approximately 50 porcentual points with respect to the raw implementation
 ```
 ## knapsack_dynamic
-
+A less computing intensive approach for the problem would be a dynamic implementation iterating through the dataframe . The algorithm will run in O(W<sub>n</sub>).
 ```
-profiling kanpsack dynamic algorithm
+profiling was carried out in the kanpsack dynamic algorithm. We run the algorithm over 300 and later 500 objects. 
+The following table shows some performance metrics and time to carry out the execution over 300-500 objects using dynamic implementation.
 ```
 ```{r include = TRUE}
-Lab06::knapsack_dynamic(x = knapsack_objects[1:300,], W = 3500)
+Lab06::knapsack_dynamic(x = knapsack_objects[1:500,], W = 3500)
 ```
 
 ```{r include = TRUE, echo=FALSE}
 
-table = cbind(c("mean before profiling", "after", "time to run for 500 objects" ), c("61.44432", "27.24009", "2.427855 s"))
+table = cbind(c("mean before profiling", "after profiling (300 objects)", "after profiling (500 objects)" ), c("61.44432 ms", "27.24009 ms", "2.427855 s"))
 
 knitr::kable(
   table, caption = 'Profiling Metrics',col.names = c("metrics", "value")
@@ -108,17 +118,23 @@ knitr::kable(
 ```
 
 ```
-Measured with: microbenchmark
+
+The mean time of execution with is 27.24009 ms, which represents an improvement of approximately 56 porcentual points with respect to the non-profiled one.
+
+Measured with: microbenchmark.
 ```
 
 ## greedy_knapsack
 
-
+The last approach will be a heuristic approximation. The algorithm will run in O(nlog(n)) due to the sorting part.
 ```{r include = TRUE}
  Lab06::greedy_knapsack(x = knapsack_objects[1:1e+06, ], W = 3500) 
 ```
 ```
 Units: milliseconds
+The following table shows some performance metrics and time to carry out the execution over 1000000 objects using greedy implementation.
+
+The mean time of execution with is 1044.997 ms.
 ```
 ```{r include = TRUE, echo=FALSE}
 
